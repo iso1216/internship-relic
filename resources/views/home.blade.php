@@ -1,8 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            トップページ
-        </h2>
+        <li>
+            <a class="font-semibold text-xl text-gray-800 leading-tight">
+                最新情報
+            </a>
+        </li>
+        <li>
+            <a class="font-semibold text-xl text-gray-800 leading-tight">
+                登録地
+            </a>
+        </li>
     </x-slot>
 
     <div class="py-12">
