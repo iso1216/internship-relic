@@ -6,12 +6,6 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
-        <div class="my-4">
-            <a href="{{ route('post.create') }}" class="btn btn-primary" role="button">
-                {{ __('新しい投稿') }}
-            </a>
-        </div>
-
         @if (!empty($posts))
             <div class="grid grid-cols-1 gap-4">
                 @foreach ($posts as $post)
