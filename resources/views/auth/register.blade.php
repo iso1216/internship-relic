@@ -1,3 +1,5 @@
+<?php $place_data = ["未設定","千種区","東区","北区","西区","中村区","中区","昭和区","瑞穂区","熱田区","中川区","港区","南区","守山区","緑区","名東区","天白区"]; ?>
+
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -14,6 +16,16 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+
+        <!-- Register_place -->
+        <div class="mt-4">
+            <x-input-label for="current_register_place" :value="__('登録区を変更する')" />
+            <select id="register_place" name="register_place" class="mt-1 block w-full" autocomplete="current_register_place" >
+                @foreach ($place_data as $place)
+                    <option value="{{$place}}" >{{$place}}</option> 
+                @endforeach
+            </select>
         </div>
 
         <!-- Password -->
