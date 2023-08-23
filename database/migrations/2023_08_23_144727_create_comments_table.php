@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('traffic_accident_id');
             $table->string('comment_text');
-            $table->integer('total_good');
-            $table->integer('total_bad');
+            $table->integer('total_good')->nullable();
+            $table->integer('total_bad')->nullable();
             $table->timestamps();
             $table
                 ->foreign('user_id')

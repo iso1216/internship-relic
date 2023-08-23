@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +16,6 @@ class Comment extends Model
 
     public function traffic_accident()
     {
-        return $this->belongsTo(Traffic_accident::class);
+        return $this->belongsTo(TrafficAccident::class);
     }
 }
