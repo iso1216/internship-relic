@@ -1,3 +1,5 @@
+<?php $place_data = ["未設定","千種区","東区","北区","西区","中村区","中区","昭和区","瑞穂区","熱田区","中川区","港区","南区","守山区","緑区","名東区","天白区"]; ?>
+
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
@@ -5,7 +7,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("アカウント情報とメールアドレスと登録区を更新できます") }}
         </p>
     </header>
 
@@ -45,6 +47,17 @@
                     @endif
                 </div>
             @endif
+        </div>
+
+        <div>
+            <x-input-label for="current_register_place" :value="__('登録区を変更する')" />
+            <select id="register_place" name="register_place" class="mt-1 block w-full" autocomplete="current_register_place" >
+            @foreach ($place_data as $place)
+                <option value="{{$place}}" 
+                @if($place==$user->register_place ) selected @endif>
+                {{$place}}</option> 
+            @endforeach
+            </select>
         </div>
 
         <div class="flex items-center gap-4">
