@@ -20,7 +20,7 @@
 
         <!-- Register_place -->
         <div class="mt-4">
-            <x-input-label for="current_register_place" :value="__('登録区を変更する')" />
+            <x-input-label for="current_register_place" :value="__('登録区')" />
             <select id="register_place" name="register_place" class="mt-1 block w-full" autocomplete="current_register_place" >
                 @foreach ($place_data as $place)
                     <option value="{{$place}}" >{{$place}}</option> 
