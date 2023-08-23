@@ -1,8 +1,4 @@
 <x-app-layout>
-    <div class="max-w-xl">
-        @include('header.header')
-    </div>
-
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
             <a href="{{ route('post.create') }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
