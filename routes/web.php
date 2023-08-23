@@ -23,13 +23,13 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/post/index', [PostController::class, 'index'])->name('post.index');
+    Route::get('/post/register-district', [PostController::class, 'register'])->name('post.register-district');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
     Route::get('/post/{id}', [PostController::class, 'edit'])->name('post.edit');
