@@ -1,4 +1,5 @@
 <x-app-layout>
+<<<<<<< HEAD
     <x-slot name="header">
         <li>
             <a class="font-semibold text-xl text-gray-800 leading-tight">
@@ -45,6 +46,9 @@
         </div>
     </div>
         <div class="py-12">
+=======
+    <div class="py-12">
+>>>>>>> f663bd92533859e335524d6af60233746b6c4819
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <a href="{{ route('post.index') }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
