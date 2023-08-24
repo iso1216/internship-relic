@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
-            <a href="{{ route('mycomments', ['id'=>$id]) }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
+            <a href="{{ route('mycomments', ['id'=>$id]) }}" class="text-black border-gray-500 border-2 rounded-xl font-bold inline-block ml-8 py-2 px-4 bg-blue-200 text-decoration-none shadow">
                 {{ __('コメントを確認する') }}
             </a>
         </div>
