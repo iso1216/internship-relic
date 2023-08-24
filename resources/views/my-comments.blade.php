@@ -10,16 +10,15 @@
             <div class="grid grid-cols-1 gap-4">
                 @foreach ($comments as $comment)
                     <div class="bg-white shadow p-6 rounded-lg">
-                        <h4 class="text-lg font-bold">{{ $comment->title }}</h4>
-                        <p class="text-gray-800">{{ $comment->body }}</p>
+                        <p class="text-gray-800">{{ $comment->comment_text }}</p>
                         <p class="text-gray-800">{{ $comment->updated_at }}</p>
 
                         <div class="mt-4 flex">
-                            <a href="{{ route('post.edit', ['id' => $post->id]) }}" class="btn btn-primary mr-2"
+                            <a href="{{ route('comment.edit', ['id' => $comment->id]) }}" class="btn btn-primary mr-2"
                                 role="button">
                                 {{ __('編集') }}
                             </a>
-                            <form action="{{ route('post.destroy', ['id' => $post->id]) }}" method="post">
+                            <form action="{{ route('comment.destroy', ['id' => $comment->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">
