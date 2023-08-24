@@ -15,10 +15,10 @@ class TrafficAccidentController extends Controller
         return view('trafficAccident.index', compact('trafficAccidents'));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        $trafficAccidents = TrafficAccident::orderBy('updated_at', 'desc')->get();
-        return view('trafficAccident.detail', compact('trafficAccidents'));
+        $trafficAccident = TrafficAccident::findOrFail($id);
+        return view('trafficAccident.detail', compact('trafficAccident'));
     }
 
     public function register()

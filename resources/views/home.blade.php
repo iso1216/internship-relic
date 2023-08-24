@@ -20,7 +20,7 @@
                                 <p class="text-gray-600">{{ $trafficAccident->accident_place }}</p>
                                 <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
                             </div>
-                            <a href="{{ route('trafficAccident.detail') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
+                            <a href="{{ route('trafficAccident.detail', ['id' => $trafficAccident->id]) }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
                                 {{ __('事故詳細ページ') }}
                             </a>
                         </li>
