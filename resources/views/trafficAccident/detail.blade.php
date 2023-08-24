@@ -15,19 +15,20 @@
                     <p class="text-gray-800">{{ $trafficAccident->accident_detail }}</p>
                     <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
                 </div>
-                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                        <a href="{{ route('comment.index', ['id' => $trafficAccident->id]) }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
-                        font-semibold text-gray-800 hover:bg-gray-100 text-decoration-none">
-                            コメント欄
-                        </a>
-                        <a href="{{ route('comment.create', ['id' => $trafficAccident->id]) }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
-
-                            {{ __('コメントする') }}
-                        </a>
-                    </div>
-                </div>
             </li>
+            <div class="max-w-2xl mx-auto sm:px-6 lg:px-8 mt-28">
+                <a href="{{ route('comment.index', ['id' => $trafficAccident->id]) }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
+                font-semibold text-gray-800 hover:bg-gray-100 text-decoration-none">
+                    <div class="inline-block rounded-lg bg-gray-300 hover:bg-gray-400 py-2 px-60 text-gray-800 hover:text-black">
+                        {{ __('コメント欄') }}
+                    </div>
+                </a>
+                <div class="flex justify-center items-center mt-4">
+                    <a href="{{ route('comment.create', ['id' => $trafficAccident->id]) }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
+                        {{ __('コメントする') }}
+                    </a>
+                </div>
+            </div>
         </ul>
         @else
             <div class="flex justify-center items-center h-full">
