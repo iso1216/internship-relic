@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
     Route::get('/trafficAccident/index', [TrafficAccidentController::class, 'index'])->name('trafficAccident.index');
+    Route::get('/trafficAccident/detail', [TrafficAccidentController::class, 'detail'])->name('trafficAccident.detail');
     Route::get('/trafficAccident/register-district', [TrafficAccidentController::class, 'register'])->name('trafficAccident.register-district');
     Route::get('/trafficAccident/create', [TrafficAccidentController::class, 'create'])->name('trafficAccident.create');
     Route::post('/trafficAccident/store', [TrafficAccidentController::class, 'store'])->name('trafficAccident.store');
