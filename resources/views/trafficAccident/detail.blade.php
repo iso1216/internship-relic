@@ -16,6 +16,7 @@
                     <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
                     <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $trafficAccident->accident_place }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+            </li>
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                         <a href="{{ route('comment.index', ['id' => $trafficAccident->id]) }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
@@ -23,11 +24,11 @@
                             コメント欄
                         </a>
                         <a href="{{ route('comment.create', ['id' => $trafficAccident->id]) }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
+
                             {{ __('コメントする') }}
                         </a>
                     </div>
                 </div>
-            </li>
         </ul>
         @else
             <div class="flex justify-center items-center h-full">
