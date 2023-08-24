@@ -40,7 +40,7 @@ class TrafficAccidentController extends Controller
         $trafficAccident->user_id = Auth::id();
         $trafficAccident->save();
 
-        return redirect()->route('trafficAccident.index')->with('success', '投稿が作成されました');
+        return redirect()->route('home')->with('success', '投稿が作成されました');
     }
 
     public function myTrafficAccidents()
@@ -52,7 +52,7 @@ class TrafficAccidentController extends Controller
     public function edit($id)
     {
         $trafficAccident = TrafficAccident::findOrFail($id);
-        return view('trafficAccident.edit', compact('trafficAccidents'));
+        return view('trafficAccident.edit', compact('trafficAccident'));
     }
 
     public function update(Request $request, $id)
@@ -69,7 +69,7 @@ class TrafficAccidentController extends Controller
         $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->save();
 
-        return redirect()->route('myaccident')->with('success', '投稿が更新されました');
+        return redirect()->route('mytrafficaccidents')->with('success', '投稿が更新されました');
     }
 
     public function destroy($id)
@@ -77,7 +77,7 @@ class TrafficAccidentController extends Controller
         $trafficAccident = TrafficAccident::findOrFail($id);
         $trafficAccident->delete();
 
-        return redirect()->route('myTrafficAccidents')->with('success', '投稿が削除されました');
+        return redirect()->route('mytrafficaccidents')->with('success', '投稿が削除されました');
     }
 }
 

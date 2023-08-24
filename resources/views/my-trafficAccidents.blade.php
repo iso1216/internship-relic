@@ -10,16 +10,16 @@
             <div class="grid grid-cols-1 gap-4">
                 @foreach ($trafficAccidents as $trafficAccident)
                     <div class="bg-white shadow p-6 rounded-lg">
-                        <h4 class="text-lg font-bold">{{ $trafficAccident->title }}</h4>
-                        <p class="text-gray-800">{{ $trafficAccident->body }}</p>
-                        <p class="text-gray-800">{{ $trafficAccident->updated_at }}</p>
+                        <h4 class="text-lg font-bold">{{ $trafficAccident->user->name }}</h4>
+                        <p class="text-gray-800">{{ $trafficAccident->accident_place }}</p>
+                        <p class="text-gray-800">{{ $trafficAccident->accident_time }}</p>
 
                         <div class="mt-4 flex">
                             <a href="{{ route('trafficAccident.edit', ['id' => $trafficAccident->id]) }}" class="btn btn-primary mr-2"
                                 role="button">
                                 {{ __('編集') }}
                             </a>
-                            <form action="{{ route('trafficAccident.destroy', ['id' => $trafficAccident->id]) }}" method="trafficAccident">
+                            <form action="{{ route('trafficAccident.destroy', ['id' => $trafficAccident->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">
