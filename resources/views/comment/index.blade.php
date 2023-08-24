@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
-            <a href="{{ route('mycomments') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
+            <a href="{{ route('mycomments', ['id'=>$id]) }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
                 {{ __('コメントを確認する') }}
             </a>
         </div>
@@ -11,8 +11,7 @@
                 <ul>
                     @foreach ($comments as $comment)
                         <li class="mb-6 bg-white border rounded-lg p-4">
-                            <h3 class="text-lg font-bold mb-2 border-bottom">{{ $comment->title }}</h3>
-                            <p class="text-gray-1000 mt-4">{{ $comment->body }}</p>
+                            <p class="text-gray-1000 mt-4">{{ $comment->comment_text }}</p>
                             <div class="flex justify-between mt-8">
                                 <p class="text-gray-600">{{ $comment->user->name }}</p>
                                 <p class="text-gray-600">{{ $comment->updated_at }}</p>
