@@ -11,7 +11,7 @@ class TrafficAccidentController extends Controller
 {
     public function index()
     {
-        $trafficAccident = TrafficAccident::orderBy('updated_at', 'desc')->get();
+        $trafficAccidents = TrafficAccident::orderBy('updated_at', 'desc')->get();
         return view('trafficAccident.index', compact('trafficAccidents'));
     }
     public function register()
@@ -28,13 +28,15 @@ class TrafficAccidentController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'accident_place' => 'required|string|max:255',
+            'accident_time' => 'required|string',
+            'accident_detail' => 'required|string|max:255',
         ]);
         /**ModelsのAccident */
         $trafficAccident = new TrafficAccident();
-        $trafficAccident->title = $validatedData['title'];
-        $trafficAccident->body = $validatedData['body'];
+        $trafficAccident->accident_place = $validatedData['accident_place'];
+        $trafficAccident->accident_time = $validatedData['accident_time'];
+        $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->user_id = Auth::id();
         $trafficAccident->save();
 
@@ -56,13 +58,15 @@ class TrafficAccidentController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'accident_place' => 'required|string|max:255',
+            'accident_time' => 'required|string',
+            'accident_detail' => 'required|string|max:255',
         ]);
 
         $trafficAccident = TrafficAccident::findOrFail($id);
-        $trafficAccident->title = $validatedData['title'];
-        $trafficAccident->body = $validatedData['body'];
+        $trafficAccident->accident_place = $validatedData['accident_place'];
+        $trafficAccident->accident_time = $validatedData['accident_time'];
+        $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->save();
 
         return redirect()->route('myaccident')->with('success', '投稿が更新されました');
