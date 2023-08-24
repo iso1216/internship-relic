@@ -41,7 +41,7 @@ class CommentController extends Controller
 
     public function myComment()
     {
-        $posts = Comment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
+        $comments = Comment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
         return view('my-comments', compact('comments'));
     }
 

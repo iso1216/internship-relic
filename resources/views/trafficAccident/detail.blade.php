@@ -15,24 +15,21 @@
                                 <p class="text-gray-800">{{ $trafficAccident->accident_detail }}</p>
                                 <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
                             </div>
+                            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <a href="{{ route('comment.index') }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
+                font-semibold text-gray-800 hover:bg-gray-100 text-decoration-none">
+                    コメント欄
+                </a>
+            </div>
+        </div>
                         </li>
-                </ul>
+        </ul>
         @else
             <div class="flex justify-center items-center h-full">
                 <p class="text-lg text-gray-600">登録された事故情報はありません</p>
             </div>
         @endif
     </div>          
-
-<div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <a href="{{ route('post.index') }}" class="bg-white border-b border-gray-200 p-6 block w-full text-center
-                font-semibold text-gray-800 hover:bg-gray-100 text-decoration-none">
-                    コメント欄
-                </a>
-            </div>
-        </div>
-</div>
 
 </x-app-layout>
