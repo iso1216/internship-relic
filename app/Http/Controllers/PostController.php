@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,6 +13,12 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('updated_at', 'desc')->get();
         return view('post.index', compact('posts'));
+    }
+    
+    public function register()
+    {
+        $register_posts = Post::where('accident_place', User::select('register_place')->where('id', Auth::id())->pluck('register_place'))->orderBy('updated_at', 'desc')->get();
+        return view('post.register-district', compact('register_posts'));
     }
 
     public function create()

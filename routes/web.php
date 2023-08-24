@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\TrafficAccidentController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
+use App\Models\TrafficAccident;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,14 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * アプリ初期
+ */
 Route::get('/', function () {
     return view('home');
 });
 
+/**
+ * アプリロード処理
+ */
 Route::get('/home', function () {
-    return view('home');
+    $trafficAccidents = TrafficAccident::orderBy('updated_at', 'desc')->get();
+    return view('home', compact('trafficAccidents'));
 })->name('home');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -30,11 +38,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/post/index', [PostController::class, 'index'])->name('post.index');
+    Route::get('/post/register-district', [PostController::class, 'register'])->name('post.register-district');
     Route::get('/post/create', [PostController::class, 'create'])->name('post.create');
     Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
     Route::get('/post/{id}', [PostController::class, 'edit'])->name('post.edit');
     Route::patch('/post/{id}', [PostController::class, 'update'])->name('post.update');
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
+
+    Route::get('/trafficAccident/index', [TrafficAccidentController::class, 'index'])->name('trafficAccident.index');
+    Route::get('/trafficAccident/register-district', [TrafficAccidentController::class, 'register'])->name('trafficAccident.register-district');
+    Route::get('/trafficAccident/create', [TrafficAccidentController::class, 'create'])->name('trafficAccident.create');
+    Route::post('/trafficAccident/store', [TrafficAccidentController::class, 'store'])->name('trafficAccident.store');
+    Route::get('/trafficAccident/{id}', [TrafficAccidentController::class, 'edit'])->name('trafficAccident.edit');
+    Route::patch('/trafficAccident/{id}', [TrafficAccidentController::class, 'update'])->name('trafficAccident.update');
+    Route::delete('/trafficAccident/{id}', [TrafficAccidentController::class, 'destroy'])->name('trafficAccident.destroy');
+
+    Route::get('/mytrafficaccidents', [TrafficAccidentController::class, 'myTrafficAccidents'])->name('mytrafficaccidents');
 
     Route::get('/myposts', [PostController::class, 'myPosts'])->name('myposts');
 });

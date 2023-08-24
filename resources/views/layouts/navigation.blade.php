@@ -70,6 +70,22 @@
         </div>
     </div>
 
+    <!-- Page Heading -->
+    <header class="bg-white shadow">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <li>
+                <a href="{{ route('home') }}" class="font-semibold text-xl text-gray-800 leading-tight">
+                    最新情報
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('post.register-district') }}" class="font-semibold text-xl text-gray-800 leading-tight">
+                    登録地
+                </a>
+            </li>
+        </div>
+    </header>
+    
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">

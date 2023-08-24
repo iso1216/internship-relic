@@ -1,10 +1,16 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('事故登録編集') }}
+        </h2>
+    </x-slot>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body mt-4">
-                        <form method="POST" action="{{ route('post.update', $post->id) }}">
+                        <form method="POST" action="{{ route('trafficAccident.update', $post->id) }}">
                             @csrf
                             @method('PATCH')
 
@@ -12,7 +18,7 @@
                                 <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('タイトル') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $post->title) }}" required autocomplete="title" autofocus>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $trafficAccident->title) }}" required autocomplete="title" autofocus>
 
                                     @error('title')
                                         <span class="invalid-feedback" role="alert">
