@@ -1,4 +1,10 @@
 <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('自分のコメント一覧') }}
+        </h2>
+    </x-slot>
+
     <div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
         @if (!empty($posts))
             <div class="grid grid-cols-1 gap-4">
@@ -26,7 +32,7 @@
             </div>
         @else
             <div class="flex justify-center items-center h-full">
-                <p class="text-lg text-gray-600">投稿はありません。</p>
+                <p class="text-lg text-gray-600">コメントはありません。</p>
             </div>
         @endif
     </div>
