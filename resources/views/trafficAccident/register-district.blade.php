@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
             @if (!empty($register_Accidents))
-                <ul>
+                <ul class="px-8">
                     @foreach ($register_Accidents as $accident)
                         <li class="mb-6 bg-white border rounded-lg p-4">
                             <h3 class="text-lg font-bold mb-2 border-bottom">{{ $accident->user->name }}</h3>

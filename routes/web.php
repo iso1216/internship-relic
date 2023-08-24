@@ -23,7 +23,8 @@ use App\Models\TrafficAccident;
  * アプリ初期
  */
 Route::get('/', function () {
-    return view('home');
+    $trafficAccidents = TrafficAccident::orderBy('updated_at', 'desc')->get();
+    return view('home', compact('trafficAccidents'));
 });
 
 /**

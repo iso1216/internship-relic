@@ -1,12 +1,12 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white p-4 border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between pb-2">
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}" class="text-decoration">
-                        <span>Nagoyaセーフネット</span>
+                    <a href="{{ route('home') }}" class="text-decoration-none font-bold text-4xl text-black">
+                        Nagoyaセーフネット
                     </a>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div class='text-lg'>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -68,23 +68,19 @@
                 </button>
             </div>
         </div>
-    </div>
-
     <!-- Page Heading -->
-    <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <li>
-                <a href="{{ route('home') }}" class="font-semibold text-xl text-gray-800 leading-tight">
-                    最新情報
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('trafficAccident.register-district') }}" class="font-semibold text-xl text-gray-800 leading-tight">
-                    登録地
-                </a>
-            </li>
+    <header class="border-4 border-gray-500 rounded-3xl">
+        <div class="flex max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <a href="{{ route('home') }}" class="pl-12 text-decoration-none font-semibold text-2xl text-gray-800 leading-tight">
+                >最新情報
+            </a>
+            <a href="{{ route('trafficAccident.register-district') }}" class="pl-24 text-decoration-none font-semibold text-2xl text-gray-800 leading-tight">
+                >登録地
+            </a>
         </div>
     </header>
+    </div>
+
     
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
