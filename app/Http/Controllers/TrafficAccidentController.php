@@ -11,9 +11,10 @@ class TrafficAccidentController extends Controller
 {
     public function index()
     {
-        $trafficAccident = TrafficAccident::orderBy('updated_at', 'desc')->get();
+        $trafficAccidents = TrafficAccident::orderBy('updated_at', 'desc')->get();
         return view('trafficAccident.index', compact('trafficAccidents'));
     }
+
     public function register()
     {
         $register_Accidents = TrafficAccident::where('accident_place', User::select('register_place')->where('id', Auth::id())->pluck('register_place'))->orderBy('updated_at', 'desc')->get();
@@ -28,13 +29,13 @@ class TrafficAccidentController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'accident_place' => 'required|string|max:255',
+            'accident_detail' => 'required|string|max:255',
         ]);
         /**ModelsのAccident */
         $trafficAccident = new TrafficAccident();
-        $trafficAccident->title = $validatedData['title'];
-        $trafficAccident->body = $validatedData['body'];
+        $trafficAccident->accident_place = $validatedData['accident_place'];
+        $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->user_id = Auth::id();
         $trafficAccident->save();
 
@@ -56,16 +57,16 @@ class TrafficAccidentController extends Controller
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'user_id' => 'required|string|max:255',
+            'accident_place' => 'required|string',
         ]);
 
         $trafficAccident = TrafficAccident::findOrFail($id);
-        $trafficAccident->title = $validatedData['title'];
-        $trafficAccident->body = $validatedData['body'];
+        $trafficAccident->title = $validatedData['user_id'];
+        $trafficAccident->body = $validatedData['accident_place'];
         $trafficAccident->save();
 
-        return redirect()->route('myaccident')->with('success', '投稿が更新されました');
+        return redirect()->route('mytrafficaccidents')->with('success', '投稿が更新されました');
     }
 
     public function destroy($id)
@@ -73,7 +74,7 @@ class TrafficAccidentController extends Controller
         $trafficAccident = TrafficAccident::findOrFail($id);
         $trafficAccident->delete();
 
-        return redirect()->route('myTrafficAccidents')->with('success', '投稿が削除されました');
+        return redirect()->route('mytrafficaccidents')->with('success', '投稿が削除されました');
     }
 }
 
