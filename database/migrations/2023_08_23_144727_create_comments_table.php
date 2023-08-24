@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id('comment_id');
+            $table->id('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('traffic_accident_id');
             $table->string('comment_text');
@@ -26,7 +26,7 @@ return new class extends Migration
                 ->onDelete('cascade');
             $table
                 ->foreign('traffic_accident_id')
-                ->references('traffic_accident_id')
+                ->references('id')
                 ->on('traffic_accidents')
                 ->onDelete('cascade');
         });

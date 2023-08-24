@@ -15,10 +15,17 @@ class TrafficAccidentController extends Controller
         return view('trafficAccident.index', compact('trafficAccidents'));
     }
 
+
+    public function detail($id)
+    {
+        $trafficAccident = TrafficAccident::findOrFail($id);
+        return view('trafficAccident.detail', compact('trafficAccident'));
+    }
+
     public function register()
     {
         $register_Accidents = TrafficAccident::where('accident_place', User::select('register_place')->where('id', Auth::id())->pluck('register_place'))->orderBy('updated_at', 'desc')->get();
-        return view('Accident.register-district', compact('register_Accidents'));
+        return view('trafficAccident.register-district', compact('register_Accidents'));
     }
 
     public function create()
@@ -30,16 +37,18 @@ class TrafficAccidentController extends Controller
     {
         $validatedData = $request->validate([
             'accident_place' => 'required|string|max:255',
+            'accident_time' => 'required|string',
             'accident_detail' => 'required|string|max:255',
         ]);
         /**ModelsのAccident */
         $trafficAccident = new TrafficAccident();
         $trafficAccident->accident_place = $validatedData['accident_place'];
+        $trafficAccident->accident_time = $validatedData['accident_time'];
         $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->user_id = Auth::id();
         $trafficAccident->save();
 
-        return redirect()->route('trafficAccident.index')->with('success', '投稿が作成されました');
+        return redirect()->route('home')->with('success', '投稿が作成されました');
     }
 
     public function myTrafficAccidents()
@@ -51,19 +60,21 @@ class TrafficAccidentController extends Controller
     public function edit($id)
     {
         $trafficAccident = TrafficAccident::findOrFail($id);
-        return view('trafficAccident.edit', compact('trafficAccidents'));
+        return view('trafficAccident.edit', compact('trafficAccident'));
     }
 
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'user_id' => 'required|string|max:255',
-            'accident_place' => 'required|string',
+            'accident_place' => 'required|string|max:255',
+            'accident_time' => 'required|string',
+            'accident_detail' => 'required|string|max:255',
         ]);
 
         $trafficAccident = TrafficAccident::findOrFail($id);
-        $trafficAccident->title = $validatedData['user_id'];
-        $trafficAccident->body = $validatedData['accident_place'];
+        $trafficAccident->accident_place = $validatedData['accident_place'];
+        $trafficAccident->accident_time = $validatedData['accident_time'];
+        $trafficAccident->accident_detail = $validatedData['accident_detail'];
         $trafficAccident->save();
 
         return redirect()->route('mytrafficaccidents')->with('success', '投稿が更新されました');

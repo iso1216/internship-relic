@@ -18,4 +18,9 @@ class Comment extends Model
     {
         return $this->belongsTo(TrafficAccident::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }
