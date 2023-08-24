@@ -8,6 +8,10 @@
             <a href="{{ route('mytrafficaccidents') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
                 {{ __('自分の事故登録を確認する') }}
             </a>
+
+            <a href="{{ route('trafficAccident.index') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
+                {{ __('事故詳細ページ') }}
+            </a>
         </div>
 
         <div class="my-4">
