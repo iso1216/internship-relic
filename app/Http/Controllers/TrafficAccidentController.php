@@ -17,7 +17,7 @@ class TrafficAccidentController extends Controller
     public function register()
     {
         $register_Accidents = TrafficAccident::where('accident_place', User::select('register_place')->where('id', Auth::id())->pluck('register_place'))->orderBy('updated_at', 'desc')->get();
-        return view('Accident.register-district', compact('register_Accidents'));
+        return view('trafficAccident.register-district', compact('register_Accidents'));
     }
 
     public function create()

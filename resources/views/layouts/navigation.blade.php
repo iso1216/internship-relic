@@ -79,7 +79,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('post.register-district') }}" class="font-semibold text-xl text-gray-800 leading-tight">
+                <a href="{{ route('trafficAccident.register-district') }}" class="font-semibold text-xl text-gray-800 leading-tight">
                     登録地
                 </a>
             </li>
