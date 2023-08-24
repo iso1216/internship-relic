@@ -1,5 +1,5 @@
 <x-app-layout>
-<x-slot name="header">
+    <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('事故登録一覧') }}
         </h2>
@@ -22,6 +22,7 @@
                             コメント欄
                         </a>
                         <a href="{{ route('comment.create', ['id' => $trafficAccident->id]) }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
+
                             {{ __('コメントする') }}
                         </a>
                     </div>
@@ -33,6 +34,6 @@
                 <p class="text-lg text-gray-600">登録された事故情報はありません</p>
             </div>
         @endif
-    </div>          
+    </div>
 
 </x-app-layout>
