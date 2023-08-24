@@ -8,10 +8,6 @@
             <a href="{{ route('mytrafficaccidents') }}" class="text-black border-gray-500 border-2 rounded-xl font-bold inline-block ml-8 py-2 px-4 bg-blue-200 hover:bg-sky-100 text-decoration-none shadow">
                 {{ __('登録した事故を確認する') }}
             </a>
-
-            <a href="{{ route('trafficAccident.index') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
-                {{ __('事故詳細ページ') }}
-            </a>
         </div>
 
         <div class="my-4">

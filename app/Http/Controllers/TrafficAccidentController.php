@@ -15,7 +15,6 @@ class TrafficAccidentController extends Controller
         return view('trafficAccident.index', compact('trafficAccidents'));
     }
 
-
     public function detail($id)
     {
         $trafficAccident = TrafficAccident::findOrFail($id);
