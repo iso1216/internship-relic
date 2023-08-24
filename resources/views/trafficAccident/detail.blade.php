@@ -6,30 +6,17 @@
     </x-slot>
 
     <div class="max-w-7xl mx-auto mt-10 sm:px-6 lg:px-8">
-        @if (!empty($trafficAccidents))
-            <div class="grid grid-cols-1 gap-4">
-                @foreach ($trafficAccidents as $trafficAccident)
-                    <div class="bg-white shadow p-6 rounded-lg">
-                        <h4 class="text-lg font-bold">{{ $trafficAccident->title }}</h4>
-                        <p class="text-gray-800">{{ $trafficAccident->body }}</p>
-                        <p class="text-gray-800">{{ $trafficAccident->updated_at }}</p>
-
-                        <div class="mt-4 flex">
-                            <a href="{{ route('trafficAccident.edit', ['id' => $trafficAccident->id]) }}" class="btn btn-primary mr-2"
-                                role="button">
-                                {{ __('編集') }}
-                            </a>
-                            <form action="{{ route('trafficAccident.destroy', ['id' => $trafficAccident->id]) }}" method="trafficAccident">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">
-                                    {{ __('削除') }}
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+        @if (!empty($trafficAccident))
+        <ul>
+                        <li class="mb-6 bg-white border rounded-lg p-4">
+                            <h3 class="text-lg font-bold mb-2 border-bottom">{{ $trafficAccident->user->name }}</h3>
+                            <div class="flex justify-between mt-8">
+                                <p class="text-gray-600">{{ $trafficAccident->accident_place }}</p>
+                                <p class="text-gray-800">{{ $trafficAccident->accident_detail }}</p>
+                                <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
+                            </div>
+                        </li>
+                </ul>
         @else
             <div class="flex justify-center items-center h-full">
                 <p class="text-lg text-gray-600">登録された事故情報はありません</p>
