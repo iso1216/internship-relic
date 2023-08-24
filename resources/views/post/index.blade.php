@@ -2,11 +2,11 @@
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
             <a href="{{ route('post.create') }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
-                {{ __('投稿する') }}
+                {{ __('コメントする') }}
             </a>
 
             <a href="{{ route('myposts') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
-                {{ __('自分の投稿を確認する') }}
+                {{ __('自分のコメントを確認する') }}
             </a>
         </div>
 
@@ -26,7 +26,7 @@
                 </ul>
             @else
                 <div class="flex justify-center items-center h-full">
-                    <p class="text-lg text-gray-600">投稿はありません。</p>
+                    <p class="text-lg text-gray-600">コメントはありません</p>
                 </div>
             @endif
         </div>

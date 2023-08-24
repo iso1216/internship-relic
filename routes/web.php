@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TrafficAccidentController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Models\Comment;
 use App\Models\TrafficAccident;
 /*
 |--------------------------------------------------------------------------
@@ -53,14 +55,16 @@ Route::middleware('auth')->group(function () {
     Route::patch('/trafficAccident/{id}', [TrafficAccidentController::class, 'update'])->name('trafficAccident.update');
     Route::delete('/trafficAccident/{id}', [TrafficAccidentController::class, 'destroy'])->name('trafficAccident.destroy');
 
-    Route::get('/comment/index', [PostController::class, 'index'])->name('comment.index');
-    Route::get('/comment/create', [PostController::class, 'create'])->name('comment.create');
-    Route::post('/comment/store', [PostController::class, 'store'])->name('comment.store');
-    Route::get('/comment/{id}', [PostController::class, 'edit'])->name('comment.edit');
-    Route::patch('/comment/{id}', [PostController::class, 'update'])->name('comment.update');
-    Route::delete('/comment/{id}', [PostController::class, 'destroy'])->name('comment.destroy');
+    Route::get('/comment/index', [CommentController::class, 'index'])->name('comment.index');
+    Route::get('/comment/create', [CommentController::class, 'create'])->name('comment.create');
+    Route::post('/comment/store', [CommentController::class, 'store'])->name('comment.store');
+    Route::get('/comment/{id}', [CommentController::class, 'edit'])->name('comment.edit');
+    Route::patch('/comment/{id}', [CommentController::class, 'update'])->name('comment.update');
+    Route::delete('/comment/{id}', [CommentController::class, 'destroy'])->name('comment.destroy');
 
     Route::get('/mytrafficaccidents', [TrafficAccidentController::class, 'myTrafficAccidents'])->name('mytrafficaccidents');
+
+    Route::get('/mycomments', [CommentController::class, 'myComment'])->name('mycomments');
 
     Route::get('/myposts', [PostController::class, 'myPosts'])->name('myposts');
 });
