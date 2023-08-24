@@ -21,6 +21,9 @@
                 font-semibold text-gray-800 hover:bg-gray-100 text-decoration-none">
                     コメント欄
                 </a>
+                <a href="{{ route('comment.create') }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
+                {{ __('コメントする') }}
+            </a>
             </div>
         </div>
                         </li>

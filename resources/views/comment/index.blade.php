@@ -1,10 +1,6 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div class="my-4">
-            <a href="{{ route('comment.create') }}" class="inline-block py-2 px-4 btn btn-primary text-decoration-none">
-                {{ __('コメント') }}
-            </a>
-
             <a href="{{ route('mycomments') }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
                 {{ __('コメントを確認する') }}
             </a>
