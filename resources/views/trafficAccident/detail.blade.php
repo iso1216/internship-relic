@@ -12,7 +12,7 @@
             <div class="mt-8">
                 <label class="pt-4 text-3xl font-bold text-gray-800">{{ __('事故発生場所') }}</label>
                 <p class="text-xl font-bold">{{ $trafficAccident->accident_place }}</p>
-                <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ $trafficAccident->accident_place }}" width="600" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://maps.google.co.jp/maps?output=embed&q={{ '名古屋市'.$trafficAccident->accident_place }}" width="600" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <label class="pt-4 text-3xl font-bold text-gray-800">{{ __('詳細') }}</label>
                 <p class="text-gray-800 text-lg">{{ $trafficAccident->accident_detail }}</p>
                 <label class="pt-4 text-3xl font-bold text-gray-800">{{ __('発生時刻') }}</label>
