@@ -13,7 +13,7 @@
                 <ul class="px-8">
                     @foreach ($comments as $comment)
                         <li class="mb-6 bg-white border rounded-lg p-4">
-                            <p class="text-gray-1000 mt-4">{{ $comment->comment_text }}</p>
+                            <p class="text-gray-1000 mt-4 text-2xl">{{ $comment->comment_text }}</p>
                             <div class="flex justify-between mt-8">
                                 <p class="text-gray-600">{{ $comment->user->name }}</p>
                                 <p class="text-gray-600">{{ $comment->updated_at }}</p>
