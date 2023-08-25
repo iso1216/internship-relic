@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="container">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center p-8">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body mt-4">
