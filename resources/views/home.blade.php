@@ -15,12 +15,12 @@
                 <ul class="px-8">
                     @foreach ($trafficAccidents as $trafficAccident)
                         <li class="mb-6 bg-white border rounded-lg p-4">
-                            <h3 class="text-lg font-bold mb-2 border-bottom">{{ $trafficAccident->user->name }}</h3>
-                            <div class="flex justify-between mt-8">
-                                <p class="text-gray-600">{{ $trafficAccident->accident_place }}</p>
+                            <h3 class="text-lg border-bottom">{{ $trafficAccident->user->name }}</h3>
+                            <div class="flex justify-between mt-2">
+                                <p class="text-gray-600 text-xl">{{ $trafficAccident->accident_place }}</p>
                                 <p class="text-lg">{{ $trafficAccident->accident_time }}</p>
                             </div>
-                            <a href="{{ route('trafficAccident.detail', ['id' => $trafficAccident->id]) }}" class="inline-block ml-4 py-2 px-4 btn btn-secondary text-decoration-none">
+                            <a href="{{ route('trafficAccident.detail', ['id' => $trafficAccident->id]) }}" class="inline-block ml-4 btn btn-secondary text-decoration-none">
                                 {{ __('事故詳細ページ') }}
                             </a>
                         </li>
